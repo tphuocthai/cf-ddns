@@ -5,18 +5,24 @@ Script to update dynamic DNS to CloudFlare DNS service
 
 Install
 ------------------------
-Prepare your cloudflare key and email address before process. This is tested using ubuntu/debian.
+* Automatic installation (tested using ubuntu/debian)
+Get your cloudflare key and email address before process.
 
 ```
-wget http://raw.githubusercontent.com/tphuocthai/cf-ddns/master/install.sh
+wget https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/install.sh
 chmod +x install.sh
 sudo ./install.sh
 ```
 
+* Manual Install
+See ```install.sh``` for more information
+
 Config your hosts file
 -------------------------
 
-Enter host need to be update line by line to /etc/cf-ddns/hosts as following structure
+Enter host need to be update line by line to ```/etc/cf-ddns/hosts``` as following structure
 ```
 <id>:<name>:<domain>
 ```
+
+To get record's ```id``` see ```rec_load_all``` section from here ```https://www.cloudflare.com/docs/client-api.html```

@@ -13,7 +13,7 @@ echo "CF_KEY=$CF_KEY" >> $FILE
 
 apt-get install curl
 # Download script
-curl -o /usr/sbin/cf-ddns.sh http://raw.githubusercontent.com/tphuocthai/cf-ddns/master/cf-ddns.sh
+curl -o /usr/sbin/cf-ddns.sh https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/cf-ddns.sh
 
 # Install cronjob
 echo "*/5 *    * * *    root    /usr/sbin/cf-ddns.sh >/dev/null 2>&1" > /etc/cron.d/cf-ddns
