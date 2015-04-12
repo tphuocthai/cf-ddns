@@ -25,4 +25,4 @@ Enter host need to be update line by line to ```/etc/cf-ddns/hosts``` as followi
 <id>:<name>:<domain>
 ```
 
-To get record's ```id``` see ```rec_load_all``` section from here ```https://www.cloudflare.com/docs/client-api.html```
+To get record's ```id``` see [```rec_load_all```](https://www.cloudflare.com/docs/client-api.html#s3.3) section from [here](https://www.cloudflare.com/docs/client-api.html)

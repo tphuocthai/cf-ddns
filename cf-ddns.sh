@@ -1,5 +1,5 @@
 #!/bin/sh
-# 
+#
 # CloudFlare Dynamic DNS Update
 #
 
