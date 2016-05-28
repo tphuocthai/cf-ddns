@@ -3,28 +3,35 @@ CloudFlare Dynamic DNS
 
 Script to update dynamic DNS to CloudFlare DNS service
 
-*------------ OUTDATED -------------*
-
 Install
 ------------------------
-* Automatic installation (tested using ubuntu/debian)
+* Automatic installation (Recomnended)
 Get your cloudflare key and email address before process.
 
 ```
-wget https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/install.sh
-chmod +x install.sh
-sudo ./install.sh
+wget https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/install.py
+chmod +x install.py
+sudo ./install.py
 ```
 
 * Manual Install
-See ```install.sh``` for more information
+- Download `https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/cf-ddns.py` and save to `/usr/sbin` folder make it executable
+- Edit that file to replace `___CONF_FILE___` with `/etc/cf-ddns/config.json`
+- Create `/etc/conf.d/cf-ddns` with following content and make it executable
+	```
+	*/5 *    * * *    root    /usr/sbin/cf-ddns.py >/dev/null 2>&1
+	```
+- Create configuation file in `etc/cf-ddns/config.json`. Here is example content
+	```
+	{
+	  "cf_email": "your_cloundflair_email", 
+	  "cf_token": "your_cf_token_key", 
+	  "domains": {
+	    "zone_id": "list,of,dns,name,separated,by,comma"
+	  }, 
+	  "ip_file": "/var/log/cf-ddns/wanip.log", 
+	  "log_file": "/var/log/cf-ddns/logfile.log"
+	}
+	```
 
-Config your hosts file
--------------------------
-
-Enter host need to be update line by line to ```/etc/cf-ddns/hosts``` as following structure
-```
-<id>:<name>:<domain>
-```
-
-To get record's ```id``` see [```rec_load_all```](https://www.cloudflare.com/docs/client-api.html#s3.3) section from [here](https://www.cloudflare.com/docs/client-api.html)
+To obtain `zone_id` and dns record name see [`CloudFlare API V4 Documentation`](https://api.cloudflare.com/)
