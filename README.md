@@ -3,6 +3,8 @@ CloudFlare Dynamic DNS
 
 Script to update dynamic DNS to CloudFlare DNS service
 
+*------------ OUTDATED -------------*
+
 Install
 ------------------------
 * Automatic installation (tested using ubuntu/debian)
