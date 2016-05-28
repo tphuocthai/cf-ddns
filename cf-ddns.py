@@ -57,15 +57,14 @@ new_ip = subprocess.check_output(["dig", "+short", "myip.opendns.com", "@resolve
 # Find the old IP
 try: old_ip = open(config['ip_file'], 'r').read()
 except IOError: old_ip = ""
-old_ip=new_ip
 
 # If IP changed or no IP File, update IP File and send requests to Cloudflare API
 if new_ip != old_ip:
-  with open(IP_FILE_NAME, 'w') as f:
+  with open(config['ip_file'], 'w') as f:
     f.write(new_ip)
 
   # Do update for each zone
-  for key in domains:
+  for key in config['domains']:
     # Get dns record datas
     zone_data = get_records(key)
     if zone_data['success'] == False:

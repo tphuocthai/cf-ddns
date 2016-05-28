@@ -7,6 +7,7 @@ Script to update dynamic DNS to CloudFlare DNS service
 Get your cloudflare key and email address before process.
 
 ```
+sudo apt-get install -y python-requests dnsutils
 wget https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/install.py
 chmod +x install.py
 sudo ./install.py
