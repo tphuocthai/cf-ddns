@@ -3,9 +3,7 @@ CloudFlare Dynamic DNS
 
 Script to update dynamic DNS to CloudFlare DNS service
 
-Install
-------------------------
-* Automatic installation (Recomnended)
+### Automatic installation (Recomnended)
 Get your cloudflare key and email address before process.
 
 ```
@@ -14,14 +12,16 @@ chmod +x install.py
 sudo ./install.py
 ```
 
-* Manual Install
-- Download `https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/cf-ddns.py` and save to `/usr/sbin` folder make it executable
-- Edit that file to replace `___CONF_FILE___` with `/etc/cf-ddns/config.json`
-- Create `/etc/conf.d/cf-ddns` with following content and make it executable
+### Manual Install
+1. Download `https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/cf-ddns.py` and save to `/usr/sbin` folder make it executable
+2. Edit that file to replace `___CONF_FILE___` with `/etc/cf-ddns/config.json`
+3. Create `/etc/conf.d/cf-ddns` with following content and make it executable
+
 	```
 	*/5 *    * * *    root    /usr/sbin/cf-ddns.py >/dev/null 2>&1
 	```
-- Create configuation file in `etc/cf-ddns/config.json`. Here is example content
+4. Create configuation file in `/etc/cf-ddns/config.json`. Here is example content:
+
 	```
 	{
 	  "cf_email": "your_cloundflair_email", 
