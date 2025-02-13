@@ -7,7 +7,7 @@ Script to update dynamic DNS to CloudFlare DNS service
 Get your cloudflare key and email address before process.
 
 ```
-sudo apt-get install -y python-requests dnsutils
+sudo apt-get install -y dnsutils
 wget https://raw.githubusercontent.com/tphuocthai/cf-ddns/master/install.py
 chmod +x install.py
 sudo ./install.py
@@ -22,14 +22,16 @@ sudo ./install.py
 	*/5 *    * * *    root    /usr/sbin/cf-ddns.py >/dev/null 2>&1
 	```
 4. Create configuation file in `/etc/cf-ddns/config.json`. Here is example content:
+	You can provide either just `cf_token` or both (`cf_email` and `cf_api_key`)
 
 	```
 	{
-	  "cf_email": "your_cloundflair_email", 
-	  "cf_token": "your_cf_token_key", 
-	  "domains": {
-	    "zone_id": "list,of,dns,name,separated,by,comma"
-	  }, 
+	  "cf_token": "your_cloudflare_access_token",
+	  "cf_email": "your_cloudflare_email", 
+	  "cf_api_key": "your_cf_token_key", 
+	  "zones": {
+	    "zone_id": ["list","of","dns","names","as","array"]
+	  },
 	  "ip_file": "/var/log/cf-ddns/wanip.log", 
 	  "log_file": "/var/log/cf-ddns/logfile.log"
 	}
